@@ -1,18 +1,19 @@
 package com.qazi.calendar.calendar_backend;
 
 import jakarta.persistence.*;
+
 import java.util.Dictionary;
 import java.util.Hashtable;
 
 @Entity
-public class Event {
+public class EventRefactored {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
     private String description;
-    private Boolean allDay;
+    private String allDay;
     private String colour;
     private String tag;
 
@@ -20,39 +21,38 @@ public class Event {
     private Dictionary<String, String> tags = new Hashtable<>();
 
     // Default Constructor
-    public Event() {
+    public EventRefactored() {
         this.title = " ";
         this.description = " ";
-        this.allDay = false;
+        this.allDay = "f";
         this.colour = "#5a1e75"; // Default color
         this.tag = "null";
     }
 
-    public Event(String title) {
+    public EventRefactored(String title) {
         this.title = title;
         this.description = " ";
-        this.allDay = false;
+        this.allDay = "f";
         this.colour = "#5a1e75"; // Default color
     }
 
     // Constructor with all required fields
-    public Event(String title, String colour) {
+    public EventRefactored(String title, String colour) {
         this.title = title;
         this.description = " ";
-        this.allDay = false;
+        this.allDay = "f";
         this.colour = colour;
         this.tag = "null";
     }
 
     // Constructor with all fields
-    public Event(String title, String description, Boolean allDay, String colour) {
+    public EventRefactored(String title, String description, String allDay, String colour) {
         this.title = title;
         this.description = description;
         this.allDay = allDay;
         this.colour = colour;
         this.tag = "null";
     }
-
 
     public String getTitle() {
         return title;
@@ -70,11 +70,11 @@ public class Event {
         this.description = description;
     }
 
-    public Boolean getAllDay() {
+    public String getAllDay() {
         return allDay;
     }
 
-    public void setAllDay(Boolean allDay) {
+    public void setAllDay(String allDay) {
         this.allDay = allDay;
     }
 

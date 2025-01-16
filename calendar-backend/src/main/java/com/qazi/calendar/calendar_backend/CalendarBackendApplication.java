@@ -9,6 +9,7 @@ public class CalendarBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CalendarBackendApplication.class, args);
+
 	}
 
 }

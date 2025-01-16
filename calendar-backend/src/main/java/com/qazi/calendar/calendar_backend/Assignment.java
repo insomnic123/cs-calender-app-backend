@@ -1,4 +1,42 @@
 package com.qazi.calendar.calendar_backend;
 
-public class Assignment {
+import jakarta.persistence.Entity;
+import java.time.LocalDateTime;
+
+@Entity
+public class Assignment extends Event {
+    private LocalDateTime deadline;
+    private double estimatedTime;
+
+    // Users must input title, deadline, and estimated time, making this the default constructor
+    public Assignment(String title, LocalDateTime deadline, double estimatedTime) {
+        super(title);
+        this.deadline = deadline;
+        this.estimatedTime = estimatedTime;
+    }
+
+    // Constructor with Description
+    public Assignment(String title, String description, LocalDateTime deadline, double estimatedTime) {
+        super(title, description);
+        this.deadline = deadline;
+        this.estimatedTime = estimatedTime;
+    }
+
+    // getters and setters
+    public LocalDateTime getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(LocalDateTime deadline) {
+        this.deadline = deadline;
+    }
+
+    public double getEstimatedTime() {
+        return estimatedTime;
+    }
+
+    public void setEstimatedTime(double estimatedTime) {
+        this.estimatedTime = estimatedTime;
+    }
 }
+

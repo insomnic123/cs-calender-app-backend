@@ -1,11 +1,11 @@
 package com.qazi.calendar.calendar_backend;
 
 import jakarta.persistence.Entity;
-import java.time.LocalDateTime;
+
 import java.time.format.DateTimeFormatter;
 
 @Entity
-public class NonNegotiable extends Event {
+public class NonNegotiableRefactored extends Event {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
@@ -21,19 +21,19 @@ public class NonNegotiable extends Event {
 //    }
 
     // For quirks in processing file
-    public NonNegotiable(String startTime, String endTime) {
+    public NonNegotiableRefactored(String startTime, String endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
     // Default Constructor -- Individuals will be required to enter a title
-    public NonNegotiable(String title, String startTime, String endTime) {
+    public NonNegotiableRefactored(String title, String startTime, String endTime) {
         super(title);
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
-    public NonNegotiable(String title, String description, String startTime, String endTime) {
+    public NonNegotiableRefactored(String title, String description, String startTime, String endTime) {
         super(title, description);
         this.startTime = startTime;
         this.endTime = endTime;
